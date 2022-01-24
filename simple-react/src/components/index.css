@@ -22,7 +22,7 @@ table {
 
 .header {
   background-color: #155263;
-  color: #FAFAFA;
+  color: #fafafa;
   padding: 20px;
   text-align: center;
 }
@@ -35,12 +35,12 @@ table {
 .expense-item {
   display: flex;
   align-items: center;
-  background-color: #F1F1F6;
+  background-color: #f1f1f6;
   color: black;
   width: auto;
-  padding: 20px;
+  padding: 10px;
   margin: 0 auto;
-  font-size: 22px;
+  font-size: 1px;
 }
 
 .expense-item_description {
@@ -48,6 +48,7 @@ table {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 0 10px;
   font-weight: 800;
 }
 
@@ -55,4 +56,26 @@ table {
   border: 2px solid #155263;
   border-radius: 5px;
   padding: 10px;
+}
+.expense-date {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #155263;
+  border-radius: 5px;
+}
+
+.expense-date_month {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.expense-date_year {
+  font-size: 18px;
+}
+
+.expense-date_day {
+  font-size: 28px;
+  font-weight: 700;
 }
