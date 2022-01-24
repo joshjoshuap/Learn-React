@@ -1,9 +1,12 @@
 import React from "react";
+import Heading from "./components/Heading";
+import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
   return (
     <div>
-      <h1> Hello React </h1>
+      <Heading />
+      <ExpenseItem />
     </div>
   );
 }
