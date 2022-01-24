@@ -6,11 +6,12 @@
 }
 
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -20,8 +21,38 @@ table {
 }
 
 .header {
-  background-color: aliceblue;
-  color: black;
+  background-color: #155263;
+  color: #FAFAFA;
   padding: 20px;
   text-align: center;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.expense-item {
+  display: flex;
+  align-items: center;
+  background-color: #F1F1F6;
+  color: black;
+  width: auto;
+  padding: 20px;
+  margin: 0 auto;
+  font-size: 22px;
+}
+
+.expense-item_description {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  font-weight: 800;
+}
+
+.expense-item_amount {
+  border: 2px solid #155263;
+  border-radius: 5px;
+  padding: 10px;
 }
