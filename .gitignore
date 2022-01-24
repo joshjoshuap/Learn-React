@@ -1,0 +1,11 @@
+*.log
+npm-debug.log*
+node_modules/
+.npm
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.cache
+.parcel-cache
