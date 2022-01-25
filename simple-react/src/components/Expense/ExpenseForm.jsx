@@ -8,7 +8,7 @@ const ExpenseForm = (props) => {
   const [inputDate, setInputDate] = useState("");
 
   const changeTitle = (event) => {
-    setInputTitle(event.target.value);
+    setInputTitle(event.target.value); // set the value of inputTitle according to input event value
   };
 
   const changeAmount = (event) => {
@@ -23,14 +23,14 @@ const ExpenseForm = (props) => {
   const submitForm = (event) => {
     event.preventDefault(); // prevent to load whole page
 
-    // Getting value from change functions and pass to variable
+    // Getting value from input text and set to new variable
     const expenseData = {
       title: inputTitle,
       amount: inputAmount,
       date: new Date(inputDate),
     };
 
-    props.SavingExpenseData(expenseData); // pass expenseData object to NewExpense - SavingExpense attribute
+    props.SavingExpenseData(expenseData); // pass expenseData object to NewExpense.jsx - SavingExpense attribute
 
     // Reset the input to empty - blank
     setInputTitle("");
@@ -45,8 +45,8 @@ const ExpenseForm = (props) => {
         <input
           type="text"
           name="title"
-          value={inputTitle}
-          onChange={changeTitle}
+          value={inputTitle} // get the value of changed inputTitle
+          onChange={changeTitle} // change the value of inputTitle
         />
       </div>
       <div className="form-control">

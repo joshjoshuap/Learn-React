@@ -13,11 +13,11 @@ const App = () => {
   return (
     <div>
       <Heading />
-      {/* Get the value of addingExpense from saveExpenseData in NewExpense*/}
+      {/* Get the value of addingExpense from saveExpenseData() in NewExpense.jsx*/}
       <NewExpense addingExpense={addExpense} />
-      {/* Pass the value of addingExpense to addExpense function*/}
+      {/* Pass the value of addingExpense to addExpense()*/}
       <Card>
-        {/* Loop Expenses and pass value to ExpensesItem*/}
+        {/* Loop Expenses and pass value to ExpensesItem.jsx*/}
         {Expenses.map((expense) => (
           <ExpenseItem
             title={expense.title}

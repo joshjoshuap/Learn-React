@@ -8,14 +8,14 @@ const NewExpense = (props) => {
       ...inputtedExpenseData, // get all objects using spread operator
       id: Math.random().toString(), // generate random id
     };
-    props.addingExpense(expenseData); // pass new generated expenseData to App - addingExpense attribute
+    props.addingExpense(expenseData); // pass new generated expenseData object to App.js - addingExpense attribute
   };
 
   return (
     <Card>
-      {/* Get the value of SavingExpenseData from submitForm in Expense Form*/}
+      {/* Get the value of SavingExpenseData from submitForm() in Expense Form.jsx*/}
       <ExpenseForm SavingExpenseData={saveExpenseData} />
-      {/* Pass the value of SavingExpenseData to function saveExpenseData*/}
+      {/* Pass the value of SavingExpenseData to saveExpenseData()*/}
     </Card>
   );
 };
