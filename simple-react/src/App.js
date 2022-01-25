@@ -6,16 +6,19 @@ import Card from "./components/Card";
 
 function App() {
   return (
-    <Card>
+    <div>
       <Heading />
-      {Expenses.map((expense) => (
-        <ExpenseItem
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      ))}
-    </Card>
+      <Card>
+      {/* Loop Expenses and pass value to ExpensesItem*/}
+        {Expenses.map((expense) => (
+          <ExpenseItem
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
+      </Card>
+    </div>
   );
 }
 

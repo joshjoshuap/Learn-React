@@ -6,7 +6,7 @@ function ExpenseItem(props) {
   return (
     <div className="container">
       <Card className="expense-item">
-        <ExpenseDate date={props.date} />
+        <ExpenseDate date={props.date} /> {/* Call ExpensDate*/}
         <div className="expense-item_description">
           <div>{props.title}</div>
           <div className="expense-item_amount">{props.amount}</div>
