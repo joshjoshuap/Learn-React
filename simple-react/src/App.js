@@ -2,10 +2,11 @@ import React from "react";
 import Heading from "./components/Heading";
 import Expenses from "./components/Expenses";
 import ExpenseItem from "./components/ExpenseItem";
+import Card from "./components/Card";
 
 function App() {
   return (
-    <div>
+    <Card>
       <Heading />
       {Expenses.map((expense) => (
         <ExpenseItem
@@ -14,7 +15,7 @@ function App() {
           date={expense.date}
         />
       ))}
-    </div>
+    </Card>
   );
 }
 

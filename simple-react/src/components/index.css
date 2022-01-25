@@ -32,15 +32,21 @@ table {
   margin: 0 auto;
 }
 
+.card {
+  background-color: #f1f1f6;
+  width: 800px;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
 .expense-item {
   display: flex;
   align-items: center;
-  background-color: #f1f1f6;
   color: black;
-  width: auto;
-  padding: 10px;
-  margin: 0 auto;
-  font-size: 1px;
+  background-color: #DEEDF0;
+  width: 100%;
+  font-size: 22px;
 }
 
 .expense-item_description {
