@@ -1,5 +1,3 @@
-
-
 function ExpenseDate(props) {
   // Getting user Date
   const month = props.date.toLocaleString("en-US", { month: "long" });
