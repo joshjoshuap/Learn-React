@@ -1,9 +1,11 @@
+// Getting props from ExpensItem
 const ExpenseDate = (props) => {
   // Getting user Date
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
   const year = props.date.getFullYear();
 
+  // return equivalent date value
   return (
     <div className="expense-date">
       <div className="expense-date_month">{month}</div>
