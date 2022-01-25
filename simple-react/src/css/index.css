@@ -43,7 +43,6 @@ table {
 .expense-form {
   display: flex;
   justify-content: space-around;
-
 }
 
 label {
@@ -73,6 +72,20 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.expense-filter {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.expense-filter_control > select {
+  margin-left: 20px;
+  padding: 5px;
+  border: 2px solid #155263;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
 }
 
 .expense-item {

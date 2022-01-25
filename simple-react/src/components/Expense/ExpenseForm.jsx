@@ -26,7 +26,7 @@ const ExpenseForm = (props) => {
     // Getting value from input text and set to new variable
     const expenseData = {
       title: inputTitle,
-      amount: inputAmount,
+      amount: +inputAmount,
       date: new Date(inputDate),
     };
 

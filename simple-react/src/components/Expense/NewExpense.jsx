@@ -8,7 +8,7 @@ const NewExpense = (props) => {
       ...inputtedExpenseData, // get all objects using spread operator
       id: Math.random().toString(), // generate random id
     };
-    props.addingExpense(expenseData); // pass new generated expenseData object to App.js - addingExpense attribute
+    props.addingExpense(expenseData); // pass new generated expenseData object to Expense.jsx - addingExpense attribute
   };
 
   return (

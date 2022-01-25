@@ -1,9 +1,8 @@
 import React from "react";
 import Expenses from "./js/Expenses"; // importing data
-import ExpenseItem from "./components/Expense/ExpenseItem";
+import Expense from "./components/Expense/Expense";
 import NewExpense from "./components/Expense/NewExpense";
 import Heading from "./components/UI/Heading";
-import Card from "./components/UI/Card";
 
 const App = () => {
   const addExpense = (expense) => {
@@ -16,16 +15,7 @@ const App = () => {
       {/* Get the value of addingExpense from saveExpenseData() in NewExpense.jsx*/}
       <NewExpense addingExpense={addExpense} />
       {/* Pass the value of addingExpense to addExpense()*/}
-      <Card>
-        {/* Loop Expenses and pass value to ExpensesItem.jsx*/}
-        {Expenses.map((expense) => (
-          <ExpenseItem
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
-      </Card>
+      <Expense item={Expenses} />
     </div>
   );
 };
