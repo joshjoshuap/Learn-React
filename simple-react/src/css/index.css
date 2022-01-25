@@ -34,10 +34,45 @@ table {
 
 .card {
   background-color: #f1f1f6;
-  width: 800px;
+  width: 900px;
   padding: 10px;
   margin: 10px auto;
   border-radius: 10px;
+}
+
+.expense-form {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+label {
+  padding: 10px 0;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+input {
+  padding: 10px;
+  border: 2px solid #155263;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.form-btn {
+  align-self: flex-end;
+  background-color: green;
+  color: white;
+  height: 50px;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .expense-item {
