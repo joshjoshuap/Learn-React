@@ -1,6 +1,6 @@
-import "./index.css";
+import "../../css/index.css";
 
-function Heading() {
+const Heading = () => {
   return (
     <div className="header">
       <h1> Simple React App</h1>

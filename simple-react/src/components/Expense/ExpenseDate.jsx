@@ -1,4 +1,4 @@
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
   // Getting user Date
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
@@ -11,6 +11,6 @@ function ExpenseDate(props) {
       <div className="expense-date_day">{day}</div>
     </div>
   );
-}
+};
 
 export default ExpenseDate;

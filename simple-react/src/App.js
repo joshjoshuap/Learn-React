@@ -1,15 +1,15 @@
 import React from "react";
-import Heading from "./components/Heading";
-import Expenses from "./components/Expenses";
-import ExpenseItem from "./components/ExpenseItem";
-import Card from "./components/Card";
+import Expenses from "./js/Expenses";
+import ExpenseItem from "./components/Expense/ExpenseItem";
+import Heading from "./components/UI/Heading";
+import Card from "./components/UI/Card";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Heading />
       <Card>
-      {/* Loop Expenses and pass value to ExpensesItem*/}
+        {/* Loop Expenses and pass value to ExpensesItem*/}
         {Expenses.map((expense) => (
           <ExpenseItem
             title={expense.title}
@@ -20,6 +20,6 @@ function App() {
       </Card>
     </div>
   );
-}
+};
 
 export default App;
