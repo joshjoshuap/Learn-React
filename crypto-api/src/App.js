@@ -1,9 +1,9 @@
-import './App.css';
+import CryptoTable from "./components/CryptoTable.jsx";
 
 function App() {
   return (
-    <div className="App">
-    <h1>Hello World</h1>
+    <div>
+      <CryptoTable />
     </div>
   );
 }
