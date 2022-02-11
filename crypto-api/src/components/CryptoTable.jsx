@@ -1,8 +1,8 @@
 import cryptoAPI from "../cryptoAPI.js";
 import CryptoCoin from "./CryptoCoin.jsx";
 
-const CoinRow = (apiURL) => {
-  return <CryptoCoin url={apiURL} />;
+const CoinInfo = (apiURL) => {
+  return <CryptoCoin info={apiURL.then((data) => data[0])} />;
 };
 
 const CryptoTable = () => {
@@ -20,7 +20,7 @@ const CryptoTable = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>{Object.values(cryptoAPI).forEach((apiURL) => CoinRow(apiURL))}</tr>
+        {Object.values(cryptoAPI).forEach((apiURL) => CoinInfo(apiURL))}
       </tbody>
     </table>
   );
