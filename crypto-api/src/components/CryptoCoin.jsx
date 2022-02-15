@@ -1,14 +1,16 @@
+import { useState } from "react";
+
 const CryptoCoin = (props) => {
-  console.log(props.url);
+  const [info, setInfo] = useState();
+
+  fetch(props.url)
+    .then((res) => res.json())
+    .then((data) => setInfo(data));
+
+
   return (
     <tr>
-      <td>{props.name}</td>
-      <td>b</td>
-      <td>c</td>
-      <td>d</td>
-      <td>e</td>
-      <td>f</td>
-      <td>g</td>
+      <td>wow</td>
     </tr>
   );
 };
