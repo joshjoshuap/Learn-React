@@ -1,4 +1,4 @@
-import {CryptoTable} from "./components/CryptoTable.jsx";
+import CryptoTable from "./components/CryptoTable.jsx";
 
 function App() {
   return (

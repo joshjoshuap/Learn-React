@@ -1,14 +1,9 @@
 import CryptoCoin from "./CryptoCoin.jsx";
 import cryptoAPI from "../cryptoAPI.js";
 
-const getData = (apiURL) => {
-  fetch(apiURL)
-    .then((res) => res.json())
-    .then((data) => <h1>wow</h1>);
-};
-
-const coinRow = (apiURL) => {
-  <CryptoCoin url={apiURL} name="wow"/>;
+const getInfo = (cryptoAPI) => {
+  const api = Object.values(cryptoAPI)[0];
+  return <CryptoCoin url={api} />;
 };
 
 const CryptoTable = () => {
@@ -25,9 +20,9 @@ const CryptoTable = () => {
           <th>Volume</th>
         </tr>
       </thead>
-      <tbody>{coinRow(Object.values(cryptoAPI))}</tbody>
+      <tbody>{cryptoAPI.map(getInfo)}</tbody>
     </table>
   );
 };
 
-export { CryptoTable, coinRow };
+export default CryptoTable;

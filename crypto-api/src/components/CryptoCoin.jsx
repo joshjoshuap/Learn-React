@@ -1,6 +1,5 @@
 const CryptoCoin = (props) => {
   console.log(props.url);
-  console.log(props.name);
   return (
     <tr>
       <td>{props.name}</td>
