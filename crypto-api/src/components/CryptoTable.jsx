@@ -1,12 +1,22 @@
 import CryptoCoin from "./CryptoCoin.jsx";
 import cryptoAPI from "../cryptoAPI.js";
 
-const getInfo = (cryptoAPI) => {
-  const api = Object.values(cryptoAPI)[0];
-  return <CryptoCoin url={api} />;
-};
-
 const CryptoTable = () => {
+  const fetchAPI = (url) => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => cryptoInfo(data[0]));
+  };
+
+  const getInfo = (cryptoAPI) => {
+    const api = Object.values(cryptoAPI)[0];
+    fetchAPI(api);
+  };
+
+  const cryptoInfo = (info) => {
+    return <CryptoCoin info={info} name='wow'/>;
+  };
+
   return (
     <table>
       <thead>
