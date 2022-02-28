@@ -1,0 +1,41 @@
+body {
+  font-family: Courier;
+}
+
+.container {
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.title {
+  text-align:center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+
+}
+
+.grid-item {
+
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  border: 2px solid blue;
+  border-radius: 5px;
+}
+
+.article-title {
+  text-align: center;
+}
+
+.article-item {
+  padding: 10px;
+  border: 3px solid black;
+  margin: 10px auto;
+}
