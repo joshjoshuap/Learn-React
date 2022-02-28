@@ -1,0 +1,25 @@
+body {
+  font-family: Courier;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  grid-gap: 20px 0
+}
+
+.card-info {
+  width: 200px;
+  border: 3px solid black;
+  padding: 20px;
+}
+
+.info-item {
+  font-size: 20px;
+}
