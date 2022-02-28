@@ -8,8 +8,6 @@ function App() {
         <h1 class="title"> Counter </h1>
         <Counter />
       </div>
-
-      <div>
     </div>
   );
 }
