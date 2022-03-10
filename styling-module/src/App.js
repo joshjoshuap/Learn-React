@@ -6,7 +6,6 @@ function App() {
       <button className={`${button.btn} ${button.red}`}>Red Button</button>
       <button className={`${button.btn} ${button.blue}`}>Blue Button</button>
       <button className={`${button.btn} ${button.green}`}>Green Button</button>
-
     </div>
   );
 }
