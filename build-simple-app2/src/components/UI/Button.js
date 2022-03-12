@@ -7,7 +7,7 @@ const Button = (props) => {
       type={props.type || "submit"}
       onClick={props.onClick}
     >
-      {props.children}
+      {props.children /* This is the text inside the button */}
     </button>
   );
 };

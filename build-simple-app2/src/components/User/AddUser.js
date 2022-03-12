@@ -1,25 +1,20 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import style from "./AddUser.module.css";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
 
 const AddUser = (props) => {
-  const [enteredUsername, setUsername] = useState("");
-  const [enteredAge, setAge] = useState();
+
+  const nameInputRef = useRef();
+  const ageInputRef = useRef();
   const [error, setError] = useState(null);
-
-  const changeUsername = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const changeAge = (event) => {
-    setAge(event.target.value);
-  };
 
   const addUser = (event) => {
     event.preventDefault();
-    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+    const enteredName = nameInputRef.current.value; // get the value of the input name
+    const enteredAge = ageInputRef.current.value; // get the value of the input age
+    if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       setError({
         title: "Invalid input!",
         message: "Please enter a valid username and age!",
@@ -33,9 +28,9 @@ const AddUser = (props) => {
       });
     }
 
-    props.onAddUser(enteredUsername, +enteredAge);
-    setUsername("");
-    setAge("");
+    props.onAddUser(enteredName, +enteredAge);
+    nameInputRef.current.value = ""; // reset input name
+    ageInputRef.current.value = ""; // reset input age
   };
 
   const errorHandler = () => {
@@ -57,15 +52,13 @@ const AddUser = (props) => {
           <input
             id="username"
             type="text"
-            value={enteredUsername}
-            onChange={changeUsername}
+            ref={nameInputRef}
           />
           <label htmlFor="age">Age (Years)</label>
           <input
             id="age"
             type="number"
-            value={enteredAge}
-            onChange={changeAge}
+            ref={ageInputRef}
           />
           <Button> Add User </Button>
         </form>

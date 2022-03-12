@@ -11,7 +11,6 @@ function App() {
       return [...prevUserList, { name: uName, age: uAge }];
     });
   };
-
   return (
     <div>
       <AddUser onAddUser={addUser} />
