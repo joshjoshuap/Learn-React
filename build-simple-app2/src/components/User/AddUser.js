@@ -6,14 +6,16 @@ import ErrorModal from "../UI/ErrorModal";
 
 const AddUser = (props) => {
 
-  const nameInputRef = useRef();
-  const ageInputRef = useRef();
-  const [error, setError] = useState(null);
+  const nameInputRef = useRef(); // useRef() is a hook that returns a mutable ref object
+  const ageInputRef = useRef(); // useRef() is a hook that returns a mutable ref object
+  const [error, setError] = useState(null); // error = null
 
   const addUser = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // prevent automatic page refresh on submit
     const enteredName = nameInputRef.current.value; // get the value of the input name
     const enteredAge = ageInputRef.current.value; // get the value of the input age
+
+    // check if the input is empty and invalid age
     if (enteredName.trim().length === 0 || enteredAge.trim().length === 0) {
       setError({
         title: "Invalid input!",
@@ -28,17 +30,18 @@ const AddUser = (props) => {
       });
     }
 
-    props.onAddUser(enteredName, +enteredAge);
+    props.onAddUser(enteredName, +enteredAge); // call the onAddUser function from App.js
     nameInputRef.current.value = ""; // reset input name
     ageInputRef.current.value = ""; // reset input age
   };
 
   const errorHandler = () => {
-    setError(null);
+    setError(null); // reset error
   };
 
   return (
     <div>
+      {/* if input is not null, show the error modal */}
       {error && (
         <ErrorModal
           title={error.title}
@@ -46,6 +49,8 @@ const AddUser = (props) => {
           onConfirm={errorHandler}
         />
       )}
+
+      {/* add user form */}
       <Card className={style.input}>
         <form onSubmit={addUser}>
           <label htmlFor="username">Username</label>

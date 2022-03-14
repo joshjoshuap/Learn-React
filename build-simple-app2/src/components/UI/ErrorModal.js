@@ -2,6 +2,7 @@ import style from "./ErrorModal.module.css";
 import Card from "./Card";
 import Button from "./Button";
 
+// ErrorModal component
 const ErrorModal = (props) => {
   return (
     <div>
