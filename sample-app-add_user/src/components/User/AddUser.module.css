@@ -1,0 +1,19 @@
+.input {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input label {
+  display: block;
+  margin: 5px 0;
+  font-size: 22px;
+}
+
+.input input {
+  display: block;
+  margin: 5px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+}
