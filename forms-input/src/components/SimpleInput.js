@@ -1,37 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const SimpleInput = (props) => {
-  const [enteredName, setEnteredName] = useState('');
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
+  const [enteredName, setEnteredName] = useState('');;
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
-  // This is a custom hook that is used to validate the entered name.
-  useEffect(() => {
-    if (enteredNameIsValid) {
-      console.log('Name Input is Valid');
-    }
-  }, [enteredNameIsValid]);
+  const enteredNameIsValid = enteredName.trim().length !== 0; // check if user entered name is valid
+  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched; // if user not entered a name and touched the input, then the input is invalid
+
+  // if user entered a name set form to valid
+  let formIsValid = false; // set form to invalid by default
+  if (enteredNameIsValid) {
+    formIsValid = true;
+  }
 
   // if user type in the input field error message will be hidden
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value); // change enteredName value to the value of the 
-    
-    // if user entered a name, error message will be visible
-    if (event.target.value.trim().length !== 0) {
-      setEnteredNameIsValid(true); 
-      return;
-    }
+
   };
 
   // display error if user click input field and click away from input field
   const nameInputBlurHandler = (event) => {
     setEnteredNameTouched(true);
-
-    // if user entered a name, error message will be hidden
-    if (enteredName.trim().length === 0) {
-      setEnteredNameIsValid(false); 
-      return;
-    }
   }
 
   const formSubmissionHandler = (event) => {
@@ -39,19 +29,16 @@ const SimpleInput = (props) => {
 
     setEnteredNameTouched(true); // set enteredNameTouched to true so that the validation message will appear
 
-    if (enteredName.trim().length === 0) {
-      setEnteredNameIsValid(false); 
+    // stop if user didn't enter a name
+    if (!enteredNameIsValid) {
       return;
     }
 
-    setEnteredNameIsValid(true); // if user entered a name, set enteredNameIsValid to true
-
-    console.log(enteredName);
+    // console.log(enteredName);
 
     setEnteredName(''); // reset enteredName value to an empty string
+    setEnteredNameTouched(false); // reset enteredNameTouched to false
   };
-
-  const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched; // if user not entered a name and touched the input, then the input is invalid
 
   const nameInputClasses = nameInputIsInvalid ? 'form-control invalid' : 'form-control'; // if enteredNameIsValid is true, return 'form-control' else return 'form-control invalid' css style
 
@@ -68,7 +55,7 @@ const SimpleInput = (props) => {
         {nameInputIsInvalid && <p className='error-text'>Name must not be empty</p>}
       </div>
       <div className="form-actions">
-        <button>Submit</button>
+        <button disabled={!formIsValid}>Submit</button>
       </div>
     </form>
   );
