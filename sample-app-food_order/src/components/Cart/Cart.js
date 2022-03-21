@@ -6,9 +6,6 @@ import CartItem from './CartItem';
 import Checkout from './Checkout';
 
 const Cart = (props) => {
-  const confirmHandler = () => event => {
-    event.preventDefault();
-  }
 
   const [isCheckOut, setCheckOut] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
