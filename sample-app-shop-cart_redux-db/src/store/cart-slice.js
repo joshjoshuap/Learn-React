@@ -7,6 +7,10 @@ const cartSlice = createSlice({
     totalQuantity: 0,
   },
   reducers: {
+    replaceCart(state, action) {
+      state.totalQuantity = action.payload.totalQuantity;
+      state.items = action.payload.items;
+    },
     addItemCart(state, action) {
       const newItem = action.payload; // get the value from cart-slice.js
       const existingItem = state.items.find((item) => item.id === newItem.id); // check if the item is already in the cart
