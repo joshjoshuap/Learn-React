@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import Header from './components/Header';
 import Welcome from './pages/Welcome';
@@ -12,12 +12,10 @@ function App() {
       <Header />
       <main>
         <Routes>
+          <Route path="/" element={<Navigate replace to="/welcome" exact />} />
           <Route path="/welcome" element={<Welcome />} />
-          <Route path="/product" element={<Product />} exact/>
-          <Route
-            path="/product/:productId"
-            element={<ProductDetail />}
-          />
+          <Route path="/product" element={<Product />} exact />
+          <Route path="/product/:productId" element={<ProductDetail />} />
         </Routes>
       </main>
     </Fragment>
