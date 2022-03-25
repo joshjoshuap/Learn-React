@@ -5,6 +5,7 @@ import classes from './QuoteList.module.css';
 
 const QuoteList = (props) => {
   return (
+    // Display all quotes in the list
     <Fragment>
       <ul className={classes.list}>
         {props.quotes.map((quote) => (
