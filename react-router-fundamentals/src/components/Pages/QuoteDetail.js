@@ -23,7 +23,7 @@ const QuoteDetail = () => {
     <Fragment>
       <HighlightedQuote text={quote.text} author={quote.author} />
       <Routes>
-        <Route path={`:${params.quoteId}/comments`} element={<Comments />} />
+        <Route path={`${params.quoteId}/comments`} element={<Comments />} />
       </Routes>
     </Fragment>
   );
