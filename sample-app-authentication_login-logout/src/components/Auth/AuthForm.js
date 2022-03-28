@@ -1,18 +1,18 @@
 import { useState, useRef, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import classes from './AuthForm.module.css';
 import AuthContext from '../../store/auth-context';
-
-const API_KEY = 'AIzaSyDF81HOEJ41-JzLhickWCBEy3dtKuugqwI'; // https://console.firebase.google.com/u/0/project/sample-authentication-a4021/settings/general - WEB API
+import classes from './AuthForm.module.css';
 
 const AuthForm = () => {
+  const history = useHistory();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
+  const authCtx = useContext(AuthContext);
+
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
-  const authCtx = useContext(AuthContext);
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -24,13 +24,16 @@ const AuthForm = () => {
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
+    // optional: Add validation
+
     setIsLoading(true);
     let url;
     if (isLogin) {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}
-      `;
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDF81HOEJ41-JzLhickWCBEy3dtKuugqwI';
     } else {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+      url =
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDF81HOEJ41-JzLhickWCBEy3dtKuugqwI';
     }
     fetch(url, {
       method: 'POST',
@@ -59,7 +62,11 @@ const AuthForm = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
+        authCtx.login(data.idToken, expirationTime.toISOString());
+        history.replace('/');
       })
       .catch((err) => {
         alert(err.message);
@@ -71,27 +78,28 @@ const AuthForm = () => {
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor="email">Your Email</label>
-          <input type="email" id="email" ref={emailInputRef} required />
+          <label htmlFor='email'>Your Email</label>
+          <input type='email' id='email' required ref={emailInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor="password">Your Password</label>
+          <label htmlFor='password'>Your Password</label>
           <input
-            type="password"
-            id="password"
-            ref={passwordInputRef}
+            type='password'
+            id='password'
             required
+            ref={passwordInputRef}
           />
         </div>
         <div className={classes.actions}>
           {!isLoading && (
             <button>{isLogin ? 'Login' : 'Create Account'}</button>
           )}
-          {isLoading && <p>Sending...</p>}
+          {isLoading && <p>Sending request...</p>}
           <button
-            type="button"
+            type='button'
             className={classes.toggle}
-            onClick={switchAuthModeHandler}>
+            onClick={switchAuthModeHandler}
+          >
             {isLogin ? 'Create new account' : 'Login with existing account'}
           </button>
         </div>
