@@ -17,7 +17,7 @@ function HomePage(props) {
       <MeetupList meetups={props.meetups} />;
     </Fragment>
   );
-}
+} 
 
 // export async function getServerSideProps(context) {
 //   const req = context.req;
